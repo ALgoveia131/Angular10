@@ -16,10 +16,10 @@ export class AddTutorialComponent implements OnInit {
 
   constructor(private tutorialService: TutorialService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  saveTutorial() {
+  saveTutorial(): void {
     const data = {
       title: this.tutorial.title,
       description: this.tutorial.description
@@ -36,7 +36,7 @@ export class AddTutorialComponent implements OnInit {
         });
   }
 
-  newTutorial() {
+  newTutorial(): void {
     this.submitted = false;
     this.tutorial = {
       title: '',
@@ -44,4 +44,5 @@ export class AddTutorialComponent implements OnInit {
       published: false
     };
   }
+
 }
