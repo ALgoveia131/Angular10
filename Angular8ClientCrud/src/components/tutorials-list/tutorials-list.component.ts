@@ -15,11 +15,11 @@ export class TutorialsListComponent implements OnInit {
 
   constructor(private tutorialService: TutorialService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.retrieveTutorials();
   }
 
-  retrieveTutorials() {
+  retrieveTutorials(): void {
     this.tutorialService.getAll()
       .subscribe(
         data => {
@@ -31,18 +31,18 @@ export class TutorialsListComponent implements OnInit {
         });
   }
 
-  refreshList() {
+  refreshList(): void {
     this.retrieveTutorials();
     this.currentTutorial = null;
     this.currentIndex = -1;
   }
 
-  setActiveTutorial(tutorial, index) {
+  setActiveTutorial(tutorial, index): void {
     this.currentTutorial = tutorial;
     this.currentIndex = index;
   }
 
-  removeAllTutorials() {
+  removeAllTutorials(): void {
     this.tutorialService.deleteAll()
       .subscribe(
         response => {
@@ -54,7 +54,7 @@ export class TutorialsListComponent implements OnInit {
         });
   }
 
-  searchTitle() {
+  searchTitle(): void {
     this.tutorialService.findByTitle(this.title)
       .subscribe(
         data => {

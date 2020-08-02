@@ -16,12 +16,12 @@ export class TutorialDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.message = '';
     this.getTutorial(this.route.snapshot.paramMap.get('id'));
   }
 
-  getTutorial(id) {
+  getTutorial(id): void {
     this.tutorialService.get(id)
       .subscribe(
         data => {
@@ -33,7 +33,7 @@ export class TutorialDetailsComponent implements OnInit {
         });
   }
 
-  updatePublished(status) {
+  updatePublished(status): void {
     const data = {
       title: this.currentTutorial.title,
       description: this.currentTutorial.description,
@@ -51,7 +51,7 @@ export class TutorialDetailsComponent implements OnInit {
         });
   }
 
-  updateTutorial() {
+  updateTutorial(): void {
     this.tutorialService.update(this.currentTutorial.id, this.currentTutorial)
       .subscribe(
         response => {
@@ -63,7 +63,7 @@ export class TutorialDetailsComponent implements OnInit {
         });
   }
 
-  deleteTutorial() {
+  deleteTutorial(): void {
     this.tutorialService.delete(this.currentTutorial.id)
       .subscribe(
         response => {
